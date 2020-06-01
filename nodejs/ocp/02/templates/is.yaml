@@ -1,0 +1,33 @@
+apiVersion: v1
+items:
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: "2020-05-31T19:09:24Z"
+    generation: 1
+    labels:
+      app: ace
+    name: ace
+    namespace: exceptions
+    resourceVersion: "455113363"
+    selfLink: /apis/image.openshift.io/v1/namespaces/exceptions/imagestreams/ace
+    uid: 3dc6c96a-a372-11ea-a6ee-0a580a820124
+  spec:
+    lookupPolicy:
+      local: false
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/exceptions/ace
+    publicDockerImageRepository: default-route-openshift-image-registry.apps.shared.na.openshift.opentlc.com/exceptions/ace
+    tags:
+    - items:
+      - created: "2020-05-31T19:11:45Z"
+        dockerImageReference: image-registry.openshift-image-registry.svc:5000/exceptions/ace@sha256:281534a2c1fa9b70e59747baf01edda10c2687fb6e333d239bd4904d9ca280d8
+        generation: 1
+        image: sha256:281534a2c1fa9b70e59747baf01edda10c2687fb6e333d239bd4904d9ca280d8
+      tag: latest
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

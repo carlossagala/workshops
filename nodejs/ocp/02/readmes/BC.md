@@ -230,3 +230,4 @@ This is a summary of Red Hat's documentation. For more information, you can look
 - [https://docs.openshift.com/container-platform/3.11/dev_guide/builds/build_hooks.html](https://docs.openshift.com/container-platform/3.11/dev_guide/builds/build_hooks.html)
 - [https://docs.openshift.com/container-platform/4.2/builds/advanced-build-operations.html](https://docs.openshift.com/container-platform/4.2/builds/advanced-build-operations.html)
 - [https://docs.openshift.com/container-platform/3.11/dev_guide/builds/index.html](https://docs.openshift.com/container-platform/3.11/dev_guide/builds/index.html)
+- [https://docs.openshift.com/container-platform/3.11/dev_guide/builds/build_inputs.html](https://docs.openshift.com/container-platform/3.11/dev_guide/builds/build_inputs.html)

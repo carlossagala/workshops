@@ -120,7 +120,7 @@ source:
         name: git
       type: Git
 ```
-In this section is defined what resources are necesaries to compile the image such as source code, a Dockerfile or maybe another image. 
+In this section is defined what resources are necesaries to compile the image such as source code, compiled binaries, a Dockerfile or maybe another image. 
 In summary, the sources will be used to compile Images. You can make more complex builds like a Chained Builds using two buildConfig
 
 The first is for download and compile the artifacts, and the second to build a principal image with a dockerfile using the artifact generated in the previous Image
@@ -187,11 +187,10 @@ spec:
 
 The Strategy correspond to define how is compiled the Image. There are Four option for the moment:
 
-- binary: this strategy consist in use to compile the Image an artifact previously compiled in a local workspace. This can be a developer machine or remote host used to CI/CD tasks. 
 - sourceStrategy: define that the Image is compiled with source code (from Git or pre-compiled artifacts it is posible too in this case!).
 - dockerStrategy: define that compilation is with a dockerfile
 - pipelineStrategy: define that a BuildConfig is used like a pipeline in a Jenkins provisioned in a namespace. This strategy is not recomended in the next releases of Openshift because it will be replaced with Openshift-Pipeline (feature based in Tekton - in another words, pipeline that run native in kubernetes clusters)
-
+- customStrategy
 ---
 ```yaml
     successfulBuildsHistoryLimit: 5
@@ -223,3 +222,4 @@ This is a summary of Red Hat's documentation. For more information, you can look
 - [https://docs.openshift.com/container-platform/3.11/dev_guide/builds/build_inputs.html](https://docs.openshift.com/container-platform/3.11/dev_guide/builds/build_inputs.html)
 - [https://docs.openshift.com/container-platform/3.11/dev_guide/builds/build_hooks.html](https://docs.openshift.com/container-platform/3.11/dev_guide/builds/build_hooks.html)
 - [https://docs.openshift.com/container-platform/4.2/builds/advanced-build-operations.html](https://docs.openshift.com/container-platform/4.2/builds/advanced-build-operations.html)
+- [https://docs.openshift.com/container-platform/3.11/dev_guide/builds/index.html](https://docs.openshift.com/container-platform/3.11/dev_guide/builds/index.html)

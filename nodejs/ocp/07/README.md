@@ -1,0 +1,1 @@
+oc process -f template-base-node -p APP_NAME=exceptions-app | oc apply -f -

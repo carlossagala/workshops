@@ -1,0 +1,228 @@
+kind: Template
+metadata:
+  name: "template-base-node"
+apiVersion: v1
+items:
+- apiVersion: apps.openshift.io/v1
+  kind: DeploymentConfig
+  metadata:
+    labels:
+      app: ${APP_NAME}
+      app.kubernetes.io/part-of: ${APP_NAME}
+      app.openshift.io/runtime: nodejs
+      app.kubernetes.io/name: ${APP_NAME}
+    annotations:
+      app.openshift.io/connects-to=redis
+    name: ${APP_NAME}
+  spec:
+    replicas: 1
+    revisionHistoryLimit: 10
+    selector:
+      app: ${APP_NAME}
+      deploymentconfig: ${APP_NAME}
+    strategy:
+      activeDeadlineSeconds: 21600
+      resources: {}
+      rollingParams:
+        intervalSeconds: 1
+        maxSurge: 25%
+        maxUnavailable: 25%
+        timeoutSeconds: 600
+        updatePeriodSeconds: 1
+      type: Rolling
+    template:
+      metadata:
+        labels:
+          app: ${APP_NAME}
+          deploymentconfig: ${APP_NAME}
+      spec:
+        containers:
+        - env:
+          - name: REDIS
+            valueFrom:
+              secretKeyRef:
+                key: redis.host
+                name: redis-configuration
+          - name: REDIS_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: redis.password
+                name: redis-configuration
+          - name: PATH_CONFIG
+            valueFrom:
+              configMapKeyRef:
+                key: path.config
+                name: app-configmap
+          - name: LOG_LEVEL
+            valueFrom:
+              configMapKeyRef:
+                key: log.level
+                name: app-configmap
+          - name: LOG_PATH
+            valueFrom:
+              configMapKeyRef:
+                key: log.path
+                name: app-configmap
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app']
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          image: ' '
+          imagePullPolicy: Always
+          name: ${APP_NAME}
+          ports:
+          - containerPort: 8080
+            protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          volumeMounts:
+          - mountPath: /opt/app-root/src/config/java.json
+            name: c-exceptions
+            subPath: java.json
+          - mountPath: /tmp/exceptions/
+            name: logs
+        dnsPolicy: ClusterFirst
+        restartPolicy: Always
+        schedulerName: default-scheduler
+        securityContext: {}
+        terminationGracePeriodSeconds: 30
+        volumes:
+        - emptyDir: {}
+          name: logs
+        - configMap:
+            defaultMode: 420
+            items:
+            - key: c.json
+              path: java.json
+            name: app-configmap
+          name: c-exceptions
+    test: false
+    triggers:
+    - type: ConfigChange
+    - imageChangeParams:
+        automatic: true
+        containerNames:
+        - ${APP_NAME}
+        from:
+          kind: ImageStreamTag
+          name: ${APP_NAME}:latest
+      type: ImageChange
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: ${APP_NAME}
+    name: ${APP_NAME}
+  spec:
+    ports:
+    - name: 8080-tcp
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      app: ${APP_NAME}
+      deploymentconfig: ${APP_NAME}
+    sessionAffinity: None
+    type: ClusterIP
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    labels:
+      app: ${APP_NAME}
+    name: ${APP_NAME}
+  spec:
+    port:
+      targetPort: 8080-tcp
+    subdomain: ""
+    to:
+      kind: Service
+      name: ${APP_NAME}
+      weight: 100
+    wildcardPolicy: None
+- apiVersion: build.openshift.io/v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: "2020-05-31T19:09:24Z"
+    labels:
+      app: ${APP_NAME}
+    name: ${APP_NAME}
+  spec:
+    failedBuildsHistoryLimit: 5
+    output:
+      to:
+        kind: ImageStreamTag
+        name: ${APP_NAME}:latest
+    postCommit: {}
+    resources: {}
+    runPolicy: Serial
+    source:
+      contextDir: nodejs
+      git:
+        uri: https://github.com/carlossagala/ace
+      sourceSecret:
+        name: git
+      type: Git
+    strategy:
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          name: nodejs:10
+          namespace: openshift
+      type: Source
+    successfulBuildsHistoryLimit: 5
+    triggers:
+    - type: ConfigChange
+    - imageChange:
+        lastTriggeredImageID: image-registry.openshift-image-registry.svc:5000/openshift/nodejs@sha256:bce9d648821108fb7046b33b6f3f1b49607fd44a242de2a6a0a538f56e353153
+      type: ImageChange
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    labels:
+      app: ${APP_NAME}
+    name: ${APP_NAME}
+  spec:
+    lookupPolicy:
+      local: false
+- apiVersion: v1
+  data:
+    c.json: |-
+      [
+          { "id": 1 ,"name": "OverflowException", "count": 0 },
+          { "id": 2 ,"name": "SegmentationFaultException", "count": 0 },
+          { "id": 3 ,"name": "UnderFlowException", "count": 0 }
+      ]
+    log.level: debug
+    log.path: /tmp/exceptions/exceptions.log
+    path.config: ./config/java.json
+    port: "8080"
+  kind: ConfigMap
+  metadata:
+    creationTimestamp: "2020-05-31T19:58:33Z"
+    labels:
+      app: ${APP_NAME}
+    name: app-configmap
+- apiVersion: v1
+  stringData:
+    redis.host: "redis:6379"
+    redis.password: "r3dh4t01!"
+  kind: Secret
+  metadata:
+    labels:
+      app: ${APP_NAME}
+    name: redis-configuration
+  type: Opaque
+parameters:
+- name: APP_NAME
+  description: "Application Name"
+  from: '[A-Z0-9]{10}'
+  required: true

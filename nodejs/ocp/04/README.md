@@ -1,0 +1,1 @@
+oc get dc,svc,route,bc,is -o yaml -lapp=ace > template.yaml

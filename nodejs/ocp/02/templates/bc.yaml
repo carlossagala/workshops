@@ -26,7 +26,7 @@ items:
     source:
       contextDir: nodejs
       git:
-        uri: https://github.com/carlossagala/ace
+        uri: https://github.com/carlossagala/workshops.git
       sourceSecret:
         name: git
       type: Git

@@ -28,7 +28,7 @@ oc new-app redis-ephemeral -p DATABASE_SERVICE_NAME=redis -pREDIS_PASSWORD=r3dh4
 When it has finished to aproviosion, we can exec the next command
 
 ```bash
-oc new-app nodejs:10~https://github.com/carlossagala/ace --context-dir=nodejs -eREDIS="redis:6379" -eREDIS_PASSWORD=r3dh4t01!
+oc new-app nodejs:10~https://github.com/carlossagala/workshops.git --context-dir=nodejs -eREDIS="redis:6379" -eREDIS_PASSWORD=r3dh4t01!
 ```
 
 When it finish, you can see that several resources was created in your namespace (I did not mention that before but i hope so you have created a namespace :wink:).

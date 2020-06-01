@@ -46,7 +46,7 @@ env:
         key: redis.password
 
 
-curl http://ace-exceptions.apps.shared.na.openshift.opentlc.com/password
+curl http://workshops-exceptions.apps.shared.na.openshift.opentlc.com/password
 
 
 ConfigMap
@@ -109,8 +109,8 @@ Using a persistentVolume to save logs
 
 11996  oc get cm
 11997  oc get secret
-11998  oc label secret redis-configuration app=ace
-11999  oc label configmap app-configmap  app=ace
+11998  oc label secret redis-configuration app=workshops
+11999  oc label configmap app-configmap  app=workshops
 
 
 

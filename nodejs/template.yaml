@@ -8,18 +8,18 @@ items:
     creationTimestamp: "2020-05-31T19:09:25Z"
     generation: 2
     labels:
-      app: ace
-    name: ace
+      app: workshops
+    name: workshops
     namespace: exceptions
     resourceVersion: "455113742"
-    selfLink: /apis/apps.openshift.io/v1/namespaces/exceptions/deploymentconfigs/ace
+    selfLink: /apis/apps.openshift.io/v1/namespaces/exceptions/deploymentconfigs/workshops
     uid: 3e1a3d0c-a372-11ea-9655-0a580a8100f0
   spec:
     replicas: 1
     revisionHistoryLimit: 10
     selector:
-      app: ace
-      deploymentconfig: ace
+      app: workshops
+      deploymentconfig: workshops
     strategy:
       activeDeadlineSeconds: 21600
       resources: {}
@@ -36,8 +36,8 @@ items:
           openshift.io/generated-by: OpenShiftNewApp
         creationTimestamp: null
         labels:
-          app: ace
-          deploymentconfig: ace
+          app: workshops
+          deploymentconfig: workshops
       spec:
         containers:
         - env:
@@ -45,9 +45,9 @@ items:
             value: redis:6379
           - name: REDIS_PASSWORD
             value: r3dh4t01!
-          image: image-registry.openshift-image-registry.svc:5000/exceptions/ace@sha256:281534a2c1fa9b70e59747baf01edda10c2687fb6e333d239bd4904d9ca280d8
+          image: image-registry.openshift-image-registry.svc:5000/exceptions/workshops@sha256:281534a2c1fa9b70e59747baf01edda10c2687fb6e333d239bd4904d9ca280d8
           imagePullPolicy: Always
-          name: ace
+          name: workshops
           ports:
           - containerPort: 8080
             protocol: TCP
@@ -65,12 +65,12 @@ items:
     - imageChangeParams:
         automatic: true
         containerNames:
-        - ace
+        - workshops
         from:
           kind: ImageStreamTag
-          name: ace:latest
+          name: workshops:latest
           namespace: exceptions
-        lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/exceptions/ace@sha256:281534a2c1fa9b70e59747baf01edda10c2687fb6e333d239bd4904d9ca280d8
+        lastTriggeredImage: image-registry.openshift-image-registry.svc:5000/exceptions/workshops@sha256:281534a2c1fa9b70e59747baf01edda10c2687fb6e333d239bd4904d9ca280d8
       type: ImageChange
   status:
     availableReplicas: 1
@@ -82,7 +82,7 @@ items:
       type: Available
     - lastTransitionTime: "2020-05-31T19:12:07Z"
       lastUpdateTime: "2020-05-31T19:12:07Z"
-      message: replication controller "ace-1" successfully rolled out
+      message: replication controller "workshops-1" successfully rolled out
       reason: NewReplicationControllerAvailable
       status: "True"
       type: Progressing
@@ -228,11 +228,11 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: "2020-05-31T19:09:25Z"
     labels:
-      app: ace
-    name: ace
+      app: workshops
+    name: workshops
     namespace: exceptions
     resourceVersion: "455111146"
-    selfLink: /api/v1/namespaces/exceptions/services/ace
+    selfLink: /api/v1/namespaces/exceptions/services/workshops
     uid: 3e495e78-a372-11ea-bbb3-0698e01dcbf2
   spec:
     clusterIP: 172.30.241.90
@@ -242,8 +242,8 @@ items:
       protocol: TCP
       targetPort: 8080
     selector:
-      app: ace
-      deploymentconfig: ace
+      app: workshops
+      deploymentconfig: workshops
     sessionAffinity: None
     type: ClusterIP
   status:
@@ -283,20 +283,20 @@ items:
       openshift.io/host.generated: "true"
     creationTimestamp: "2020-05-31T19:14:09Z"
     labels:
-      app: ace
-    name: ace
+      app: workshops
+    name: workshops
     namespace: exceptions
     resourceVersion: "455115634"
-    selfLink: /apis/route.openshift.io/v1/namespaces/exceptions/routes/ace
+    selfLink: /apis/route.openshift.io/v1/namespaces/exceptions/routes/workshops
     uid: e74be6f0-a372-11ea-a6ee-0a580a820124
   spec:
-    host: ace-exceptions.apps.shared.na.openshift.opentlc.com
+    host: workshops-exceptions.apps.shared.na.openshift.opentlc.com
     port:
       targetPort: 8080-tcp
     subdomain: ""
     to:
       kind: Service
-      name: ace
+      name: workshops
       weight: 100
     wildcardPolicy: None
   status:
@@ -305,7 +305,7 @@ items:
       - lastTransitionTime: "2020-05-31T19:14:09Z"
         status: "True"
         type: Admitted
-      host: ace-exceptions.apps.shared.na.openshift.opentlc.com
+      host: workshops-exceptions.apps.shared.na.openshift.opentlc.com
       routerCanonicalHostname: apps.shared.na.openshift.opentlc.com
       routerName: default
       wildcardPolicy: None
@@ -316,11 +316,11 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: "2020-05-31T19:09:24Z"
     labels:
-      app: ace
-    name: ace
+      app: workshops
+    name: workshops
     namespace: exceptions
     resourceVersion: "455111114"
-    selfLink: /apis/build.openshift.io/v1/namespaces/exceptions/buildconfigs/ace
+    selfLink: /apis/build.openshift.io/v1/namespaces/exceptions/buildconfigs/workshops
     uid: 3deb65a4-a372-11ea-9655-0a580a8100f0
   spec:
     failedBuildsHistoryLimit: 5
@@ -328,7 +328,7 @@ items:
     output:
       to:
         kind: ImageStreamTag
-        name: ace:latest
+        name: workshops:latest
     postCommit: {}
     resources: {}
     runPolicy: Serial
@@ -368,22 +368,22 @@ items:
     creationTimestamp: "2020-05-31T19:09:24Z"
     generation: 1
     labels:
-      app: ace
-    name: ace
+      app: workshops
+    name: workshops
     namespace: exceptions
     resourceVersion: "455113363"
-    selfLink: /apis/image.openshift.io/v1/namespaces/exceptions/imagestreams/ace
+    selfLink: /apis/image.openshift.io/v1/namespaces/exceptions/imagestreams/workshops
     uid: 3dc6c96a-a372-11ea-a6ee-0a580a820124
   spec:
     lookupPolicy:
       local: false
   status:
-    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/exceptions/ace
-    publicDockerImageRepository: default-route-openshift-image-registry.apps.shared.na.openshift.opentlc.com/exceptions/ace
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/exceptions/workshops
+    publicDockerImageRepository: default-route-openshift-image-registry.apps.shared.na.openshift.opentlc.com/exceptions/workshops
     tags:
     - items:
       - created: "2020-05-31T19:11:45Z"
-        dockerImageReference: image-registry.openshift-image-registry.svc:5000/exceptions/ace@sha256:281534a2c1fa9b70e59747baf01edda10c2687fb6e333d239bd4904d9ca280d8
+        dockerImageReference: image-registry.openshift-image-registry.svc:5000/exceptions/workshops@sha256:281534a2c1fa9b70e59747baf01edda10c2687fb6e333d239bd4904d9ca280d8
         generation: 1
         image: sha256:281534a2c1fa9b70e59747baf01edda10c2687fb6e333d239bd4904d9ca280d8
       tag: latest

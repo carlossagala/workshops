@@ -7,20 +7,20 @@ items:
       openshift.io/host.generated: "true"
     creationTimestamp: "2020-05-31T19:14:09Z"
     labels:
-      app: ace
-    name: ace
+      app: workshops
+    name: workshops
     namespace: exceptions
     resourceVersion: "455115634"
-    selfLink: /apis/route.openshift.io/v1/namespaces/exceptions/routes/ace
+    selfLink: /apis/route.openshift.io/v1/namespaces/exceptions/routes/workshops
     uid: e74be6f0-a372-11ea-a6ee-0a580a820124
   spec:
-    host: ace-exceptions.apps.shared.na.openshift.opentlc.com
+    host: workshops-exceptions.apps.shared.na.openshift.opentlc.com
     port:
       targetPort: 8080-tcp
     subdomain: ""
     to:
       kind: Service
-      name: ace
+      name: workshops
       weight: 100
     wildcardPolicy: None
   status:
@@ -29,7 +29,7 @@ items:
       - lastTransitionTime: "2020-05-31T19:14:09Z"
         status: "True"
         type: Admitted
-      host: ace-exceptions.apps.shared.na.openshift.opentlc.com
+      host: workshops-exceptions.apps.shared.na.openshift.opentlc.com
       routerCanonicalHostname: apps.shared.na.openshift.opentlc.com
       routerName: default
       wildcardPolicy: None

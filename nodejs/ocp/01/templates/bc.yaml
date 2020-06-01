@@ -7,11 +7,11 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: "2020-05-31T19:09:24Z"
     labels:
-      app: ace
-    name: ace
+      app: workshops
+    name: workshops
     namespace: exceptions
     resourceVersion: "455111114"
-    selfLink: /apis/build.openshift.io/v1/namespaces/exceptions/buildconfigs/ace
+    selfLink: /apis/build.openshift.io/v1/namespaces/exceptions/buildconfigs/workshops
     uid: 3deb65a4-a372-11ea-9655-0a580a8100f0
   spec:
     failedBuildsHistoryLimit: 5
@@ -19,7 +19,7 @@ items:
     output:
       to:
         kind: ImageStreamTag
-        name: ace:latest
+        name: workshops:latest
     postCommit: {}
     resources: {}
     runPolicy: Serial

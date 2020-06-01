@@ -7,11 +7,11 @@ items:
       openshift.io/generated-by: OpenShiftNewApp
     creationTimestamp: "2020-05-31T19:09:25Z"
     labels:
-      app: ace
-    name: ace
+      app: workshops
+    name: workshops
     namespace: exceptions
     resourceVersion: "455111146"
-    selfLink: /api/v1/namespaces/exceptions/services/ace
+    selfLink: /api/v1/namespaces/exceptions/services/workshops
     uid: 3e495e78-a372-11ea-bbb3-0698e01dcbf2
   spec:
     clusterIP: 172.30.241.90
@@ -21,36 +21,8 @@ items:
       protocol: TCP
       targetPort: 8080
     selector:
-      app: ace
-      deploymentconfig: ace
-    sessionAffinity: None
-    type: ClusterIP
-  status:
-    loadBalancer: {}
-- apiVersion: v1
-  kind: Service
-  metadata:
-    annotations:
-      openshift.io/generated-by: OpenShiftNewApp
-      template.openshift.io/expose-uri: redis://{.spec.clusterIP}:{.spec.ports[?(.name=="redis")].port}
-    creationTimestamp: "2020-05-31T19:06:45Z"
-    labels:
-      app: redis-ephemeral
-      template: redis-ephemeral-template
-    name: redis
-    namespace: exceptions
-    resourceVersion: "455108659"
-    selfLink: /api/v1/namespaces/exceptions/services/redis
-    uid: df0c100d-a371-11ea-9063-02fdb1202f5a
-  spec:
-    clusterIP: 172.30.41.64
-    ports:
-    - name: redis
-      port: 6379
-      protocol: TCP
-      targetPort: 6379
-    selector:
-      name: redis
+      app: workshops
+      deploymentconfig: workshops
     sessionAffinity: None
     type: ClusterIP
   status:

@@ -1,3 +1,3 @@
-# ACE: Api Configuration Example
+# Workshops
 
-### NodeJs - exceptions example (link)
+### NodeJs - exceptions example 

@@ -1,4 +1,4 @@
-# Aprovisioning an application in Openshift.
+# Provisioning an application in Openshift.
 
 When someone work with Openshift (plataform based in Kubernetes) there are several ways to deploy an application. In this fisrt stage we will use the framework **S2I**. 
 
@@ -29,7 +29,7 @@ oc new-app redis-ephemeral -p DATABASE_SERVICE_NAME=redis -pREDIS_PASSWORD=r3dh4
 
 ![](./images/2.png)
 
-When it has finished to aprovision, we can exec the next command
+When it has finished to provision, we can exec the next command
 
 ```bash
 oc new-app nodejs:10~https://github.com/carlossagala/workshops.git --context-dir=nodejs -eREDIS="redis:6379" -eREDIS_PASSWORD=r3dh4t01!

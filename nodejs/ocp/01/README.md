@@ -77,6 +77,6 @@ contains all the settings to carry out the compilation of the new Image.
 This resource fulfills the function of acting as a balancer for pods based on their configuration.
 - route: This resource fulfills the function of acting as a point to consume the SVC provisioned in the plataform.
  
-
+The yamls obtained should look like the ones in this [folder](https://github.com/carlossagala/workshops/tree/master/nodejs/ocp/01/templates).
 
     

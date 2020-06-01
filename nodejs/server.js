@@ -26,7 +26,7 @@ password = (req, res) => {
 pod = (req, res) => {
     logger.debug(`pod: ${config.pod_name} - Request: /pod, http_verb: GET`);
     res.send(
-        POD_NAME
+        config.pod_name
     );
 }
 

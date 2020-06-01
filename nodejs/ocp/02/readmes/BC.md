@@ -78,6 +78,9 @@ spec:
     pushSecret:
       name: "dockerhub"
 ```
+```yaml
+oc secrets link builder <pull_secret_name>
+```
 
 ---
 

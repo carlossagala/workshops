@@ -86,3 +86,4 @@
 - [https://docs.openshift.com/container-platform/3.11/admin_guide/manage_scc.html](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_scc.html)
 - [https://docs.openshift.com/container-platform/3.11/dev_guide/deployments/advanced_deployment_strategies.html#graceful-termination](https://docs.openshift.com/container-platform/3.11/dev_guide/deployments/advanced_deployment_strategies.html#graceful-termination)
 - [https://v1-14.docs.kubernetes.io/docs/concepts/storage/volumes/](https://v1-14.docs.kubernetes.io/docs/concepts/storage/volumes/)
+- [https://docs.openshift.com/container-platform/4.2/applications/application-health.html](https://docs.openshift.com/container-platform/4.2/applications/application-health.html)

@@ -68,6 +68,7 @@ You can specific this credentials in the Service Account **Builder** or set it i
 ```bash
 oc set build-secret --push bc/sample-build dockerhub
 ```
+or
 
 ```yaml
 spec:
@@ -77,6 +78,12 @@ spec:
       name: "private.registry.com/org/private-image:latest"
     pushSecret:
       name: "dockerhub"
+```
+
+or
+
+```yaml
+oc secrets link builder <pull_secret_name>
 ```
 
 ---

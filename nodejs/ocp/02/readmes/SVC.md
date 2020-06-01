@@ -19,5 +19,5 @@ type: ClusterIP
 ```
 
 
-(https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/pods_and_services.html)[https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/pods_and_services.html]
-(https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)[https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types]
+[https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/pods_and_services.html](https://docs.openshift.com/container-platform/3.11/architecture/core_concepts/pods_and_services.html)
+[https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)

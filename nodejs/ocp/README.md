@@ -2,7 +2,7 @@
 
 [ 00 - Deploy application](https://github.com/carlossagala/workshops/tree/master/nodejs/ocp/00)
 
-[ 01 - Export resources (in process)](https://github.com/carlossagala/workshops/tree/master/nodejs/ocp/01)
+[ 01 - Export resources](https://github.com/carlossagala/workshops/tree/master/nodejs/ocp/01)
 
 [ 02 - Identify resources(in process)](https://github.com/carlossagala/workshops/tree/master/nodejs/ocp/02)
 

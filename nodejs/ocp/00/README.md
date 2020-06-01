@@ -29,7 +29,7 @@ oc new-app redis-ephemeral -p DATABASE_SERVICE_NAME=redis -pREDIS_PASSWORD=r3dh4
 
 ![](./images/2.png)
 
-When it has finished to aproviosion, we can exec the next command
+When it has finished to aprovision, we can exec the next command
 
 ```bash
 oc new-app nodejs:10~https://github.com/carlossagala/workshops.git --context-dir=nodejs -eREDIS="redis:6379" -eREDIS_PASSWORD=r3dh4t01!
@@ -51,7 +51,7 @@ Also you can see the resources in *Openshift Web Interface*
 ![](./images/8.png)
 
 
-The next step is select the **Workloads View** and select **Pods** option. You can see a similar view like the following image.
+The next step is select the **Workloads View** and select **Pods** option. You can see a similar data like the following image.
 
 ![](./images/4.png)
 

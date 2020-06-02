@@ -18,3 +18,4 @@
 
 [https://docs.openshift.com/container-platform/4.2/networking/routes/route-configuration.html](https://docs.openshift.com/container-platform/4.2/networking/routes/route-configuration.html)
 [https://docs.openshift.com/container-platform/4.2/networking/routes/secured-routes.html](https://docs.openshift.com/container-platform/4.2/networking/routes/secured-routes.html)
+[https://docs.openshift.com/container-platform/3.11/architecture/networking/routes.html](https://docs.openshift.com/container-platform/3.11/architecture/networking/routes.html)

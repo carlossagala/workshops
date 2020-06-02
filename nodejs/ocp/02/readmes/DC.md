@@ -87,3 +87,4 @@
 - [https://docs.openshift.com/container-platform/3.11/dev_guide/deployments/advanced_deployment_strategies.html#graceful-termination](https://docs.openshift.com/container-platform/3.11/dev_guide/deployments/advanced_deployment_strategies.html#graceful-termination)
 - [https://v1-14.docs.kubernetes.io/docs/concepts/storage/volumes/](https://v1-14.docs.kubernetes.io/docs/concepts/storage/volumes/)
 - [https://docs.openshift.com/container-platform/4.2/applications/application-health.html](https://docs.openshift.com/container-platform/4.2/applications/application-health.html)
+- [https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-volumes](https://access.redhat.com/documentation/en-us/openshift_container_platform/3.11/html/developer_guide/dev-guide-volumes)

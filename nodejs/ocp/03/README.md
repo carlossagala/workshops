@@ -27,12 +27,12 @@ data:
 ```yaml
 env:
 - name: REDIS
-    valueFrom:
+  valueFrom:
     secretKeyRef:
         name: redis-configuration
         key: redis.host
 - name: REDIS_PASSWORD
-    valueFrom:
+  valueFrom:
     secretKeyRef:
         name: redis-configuration
         key: redis.password

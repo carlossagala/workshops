@@ -3,7 +3,7 @@ oc create secret generic redis-configuration --from-literal=redis.password=r3dh4
 ---
 
 
-oc create configmap app-configmap --from-literal=port=8080 --from-literal=path.config=./config/java.json --from-literal=log.level=debug --from-literal=log.path=/tmp/exceptions/ --fro
+oc create configmap app-configmap --from-literal=port=8080 --from-literal=path.config=./config/java.json --from-literal=log.level=debug --from-literal=log.path=/tmp/exceptions/ --from-file=./nodejs/config/c.json
 
 ```yaml
 kind: ConfigMap

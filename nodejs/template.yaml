@@ -290,7 +290,7 @@ items:
     selfLink: /apis/route.openshift.io/v1/namespaces/exceptions/routes/workshops
     uid: e74be6f0-a372-11ea-a6ee-0a580a820124
   spec:
-    host: workshops-exceptions.apps.shared.na.openshift.opentlc.com
+    host: workshops-exceptions.<cluster-wildcard>
     port:
       targetPort: 8080-tcp
     subdomain: ""
@@ -305,8 +305,8 @@ items:
       - lastTransitionTime: "2020-05-31T19:14:09Z"
         status: "True"
         type: Admitted
-      host: workshops-exceptions.apps.shared.na.openshift.opentlc.com
-      routerCanonicalHostname: apps.shared.na.openshift.opentlc.com
+      host: workshops-exceptions.<cluster-wildcard>
+      routerCanonicalHostname: <cluster-wildcard>
       routerName: default
       wildcardPolicy: None
 - apiVersion: build.openshift.io/v1
@@ -379,7 +379,7 @@ items:
       local: false
   status:
     dockerImageRepository: image-registry.openshift-image-registry.svc:5000/exceptions/workshops
-    publicDockerImageRepository: default-route-openshift-image-registry.apps.shared.na.openshift.opentlc.com/exceptions/workshops
+    publicDockerImageRepository: default-route-openshift-image-registry.<cluster-wildcard>/exceptions/workshops
     tags:
     - items:
       - created: "2020-05-31T19:11:45Z"

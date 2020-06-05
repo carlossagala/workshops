@@ -14,7 +14,7 @@ items:
     selfLink: /apis/route.openshift.io/v1/namespaces/exceptions/routes/workshops
     uid: e74be6f0-a372-11ea-a6ee-0a580a820124
   spec:
-    host: workshops-exceptions.apps.shared.na.openshift.opentlc.com
+    host: workshops-exceptions.<cluster-wildcard>
     port:
       targetPort: 8080-tcp
     subdomain: ""
@@ -29,8 +29,8 @@ items:
       - lastTransitionTime: "2020-05-31T19:14:09Z"
         status: "True"
         type: Admitted
-      host: workshops-exceptions.apps.shared.na.openshift.opentlc.com
-      routerCanonicalHostname: apps.shared.na.openshift.opentlc.com
+      host: workshops-exceptions.<cluster-wildcard>
+      routerCanonicalHostname: <cluster-wildcard>
       routerName: default
       wildcardPolicy: None
 kind: List

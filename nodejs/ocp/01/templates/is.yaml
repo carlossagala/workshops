@@ -19,7 +19,7 @@ items:
       local: false
   status:
     dockerImageRepository: image-registry.openshift-image-registry.svc:5000/exceptions/workshops
-    publicDockerImageRepository: default-route-openshift-image-registry.apps.shared.na.openshift.opentlc.com/exceptions/workshops
+    publicDockerImageRepository: default-route-openshift-image-registry.<cluster-wildcard>/exceptions/workshops
     tags:
     - items:
       - created: "2020-05-31T19:11:45Z"

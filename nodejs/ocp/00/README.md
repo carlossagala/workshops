@@ -22,7 +22,7 @@ oc new-app
 
 But first we need create a redis database because the application needs it.
 ```bash
-oc new-app redis-ephemeral -p DATABASE_SERVICE_NAME=redis -pREDIS_PASSWORD=r3dh4t01!
+oc new-app redis-ephemeral -p DATABASE_SERVICE_NAME=redis -pREDIS_PASSWORD=password
 ```
 
 ![](./images/1.png)
@@ -32,7 +32,7 @@ oc new-app redis-ephemeral -p DATABASE_SERVICE_NAME=redis -pREDIS_PASSWORD=r3dh4
 When it has finished to provision, we can exec the next command
 
 ```bash
-oc new-app nodejs:10~https://github.com/carlossagala/workshops.git --context-dir=nodejs -eREDIS="redis:6379" -eREDIS_PASSWORD=r3dh4t01!
+oc new-app nodejs:10~https://github.com/carlossagala/workshops.git --context-dir=nodejs -eREDIS="redis:6379" -eREDIS_PASSWORD=password
 ```
 
 ![](./images/3.png)

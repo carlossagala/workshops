@@ -44,7 +44,7 @@ items:
           - name: REDIS
             value: redis:6379
           - name: REDIS_PASSWORD
-            value: r3dh4t01!
+            value: password
           image: image-registry.openshift-image-registry.svc:5000/exceptions/workshops@sha256:281534a2c1fa9b70e59747baf01edda10c2687fb6e333d239bd4904d9ca280d8
           imagePullPolicy: Always
           name: workshops

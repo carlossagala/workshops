@@ -1,4 +1,4 @@
-oc create secret generic redis-configuration --from-literal=redis.password=r3dh4t01! --from-literal=redis.host=redis:6379
+oc create secret generic redis-configuration --from-literal=redis.password=password --from-literal=redis.host=redis:6379
 
 ---
 
